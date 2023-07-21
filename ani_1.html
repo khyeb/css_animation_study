@@ -4,8 +4,101 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>애니메이션1</title>
+    <style>
+        #btn1 {
+            background:aqua;
+            /* width:100px; */
+            padding:20px 20px;
+            border:5px solid darkmagenta;
+            position:relative; left:0px;
+            /* padding:10px 20px; */
+            /* transition:background 0.5s,width 0.8s; 마우스 내릴때 올릴때 전부 / 시간이 다를때 */
+            /* transition:width 0.8s; */
+            transition:all 0.5s; /* 지속시간이 모든 속성에 일치할 때*/
+        }
+        #btn1:hover {
+            background:yellow;
+            border:10px solid darkorange;
+            left:100px;
+            /* padding:20px 10px; */
+            /* transition:애니메이션적용속성 지속시간; */
+            /* transition:background 0.5s; 마우스 올릴때만... */
+            /* width:150px; */
+        }
+        #btn2 {
+            width:100px; height:100px;
+            background:gold;
+            position:relative; left:0px;
+            transition:all 2s;
+            /* 
+                시간 - 1개 - 지속시간
+                시간 -2개 - 지속시간, 지연시간
+            */
+        }
+        #btn2:hover {
+            /* width:200px; height:200px; */
+            /* background:tomato; */
+            left:100px;
+        }
+        /* transform 연습 */
+        #btn3 {
+            padding:10px;
+        }
+        /* btn3에 마우스를 올렸을때 그 형제 box가 변경된다 */
+        .box {
+            width:100px; height:100px;
+            background:yellow;
+            transition:transform 0.5s;
+        }
+        #btn3:hover ~.box {/* ~:형제들 */
+            background:pink;
+            /* transform:scaleY(0.5) scaleX(1.5); */
+            /* transform:속성(값) 속성(값) */
+            /* transform:속성은 자식, 자손에게도 영향을 준다 */
+            /* 1 = 100% */
+            /* transform:rotate(-60deg); */
+            /* transition:transform 0.5s; */
+            /* transform:skewX(70deg); */
+            /* xy 동시입력 skew(X,Y) */
+            transform:translateY(20px)
+        }
+        #btn4 {}
+        .target {
+            width:100px; height:100px;
+            display:block;
+            background-color: aqua; border-radius:50%;
+            font-size:30px;
+            transition:all 1s;
+        }
+        #btn4:hover ~.target {
+            transform-origin:center bottom;
+            color:forestgreen;
+            background:gold;
+            transform:rotate(30deg); 
+            
+        }
+
+    </style>
 </head>
 <body>
-    
+    <ul>
+        <li>
+            <button id="btn1">animation1</button>
+        </li>
+        <li>
+            <button type="button" id="btn2">animation2</button>
+        </li>
+        <li>
+            <button id="btn3" type="button">transform1</button>
+            <hr>
+            <div class="box">box</div>
+        </li>
+        <li>
+            <button id="btn4" type="button">transform2</button>
+            <hr>
+            <span class="target">적용대상</span>
+        </li>
+        <li></li>
+    </ul>
 </body>
 </html>
